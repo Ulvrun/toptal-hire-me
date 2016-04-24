@@ -14,3 +14,10 @@ Feature: Login by user
       | email                         | password                            |
       |  johnsmith@gmail.com          |     42                              |
       |  i.kuznetsova90@gmail.com     |    <script>alert('Hello');</script> |
+      
+  Scenario:
+    Given Anonymous is on 'Login' form
+    When text field 'Email' is empty
+    And text field 'Password' is empty
+    And click 'Login' button
+    Then error message 'Invalid email or password.' is displayed    
