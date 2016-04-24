@@ -9,7 +9,6 @@ Given(/^User navigates to Toptal$/) do
 
   @browser = Watir::Browser.new :chrome
   @browser.goto 'http://www.toptal.com/'
-  @user = User.new('johnsmith@gmail.com', 42)
 
 end
 
@@ -20,17 +19,17 @@ When(/^button 'Login' is clicked$/) do
 
 end
 
-And(/^enter into 'Email' text field$/) do
+And(/^enter (\S+) into 'Email' text field$/) do |email|
 
   puts "Enter incorrect email into 'Email' text field"
-  @browser.text_field(:id => 'user_email').set('johnsmith@gmail.com')
+  @browser.text_field(:id => 'user_email').set(email)
 
 end
 
-And(/^enter into 'Password' text field$/) do
+And(/^enter (\S+) into 'Password' text field$/) do |password|
 
   puts "Enter incorrect password into 'Password' text field"
-  @browser.text_field(:id => 'user_password').set(42)
+  @browser.text_field(:id => 'user_password').set(password)
 
 end
 
