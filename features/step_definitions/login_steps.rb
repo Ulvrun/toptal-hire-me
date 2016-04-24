@@ -54,3 +54,24 @@ Then(/^error message 'Invalid email or password\.' is displayed$/) do
   end
 
 end
+
+Given(/^Anonymous is on 'Login' form$/) do
+
+  @browser = Watir::Browser.new :chrome
+  @browser.goto 'https://www.toptal.com/users/login'
+
+end
+
+When(/^text field 'Email' is empty$/) do
+
+  puts "Clear 'Email' text field to make sure it is empty"
+  @browser.text_field(:id => 'user_email').clear
+
+end
+
+And(/^text field 'Password' is empty$/) do
+
+  puts "Clear 'Password' text field to make sure it is empty"
+  @browser.text_field(:id => 'user_password').clear
+
+end
